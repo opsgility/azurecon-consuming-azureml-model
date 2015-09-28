@@ -1,14 +1,28 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
+@using AzureMLSample.Helpers;
 
 <div class="jumbotron">
     <h1>AzureML Sample</h1>
 </div>
-<form method="post" action="@Url.Action("PerformAnalysis", "Home")">
+<form method="post">
     <input type="text" name="inputText" />
     <input type="submit" value="Submit for Analysis" />
 </form>
+
+@{
+    var result = Request["inputText"];
+    if (String.IsNullOrEmpty(result) == false)
+    {
+        Analyzer.TextAnalysisResult analysisResult = new Analyzer.TextAnalysisResult();
+        // start code
+
+        // end code
+    }
+}
+
+
 <div class="row">
     <div class="col-md-4">
         <h2>Sentiment Index</h2>

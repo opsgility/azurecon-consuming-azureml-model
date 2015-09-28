@@ -18,15 +18,6 @@ namespace AzureMLSample.Controllers
             return View();
         }
 
-        public ActionResult PerformAnalysis(String inputText)
-        {
-            AzureMLSample.Helpers.Analyzer.TextAnalysisResult myTAR;
-            myTAR = AzureMLSample.Helpers.Analyzer.AnalyzeText(inputText, ConfigurationManager.AppSettings["AccountKey"]);
-            ViewBag.SentimentIndex = myTAR.SentimentIndex;
-            ViewBag.KeyPhrases = myTAR.KeyPhrases;
-            return View("Index");
-        }
-
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
