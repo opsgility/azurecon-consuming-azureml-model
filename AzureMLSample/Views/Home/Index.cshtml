@@ -1,0 +1,36 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>AzureML Sample</h1>
+</div>
+<form method="post" action="@Url.Action("PerformAnalysis", "Home")">
+    <input type="text" name="inputText" />
+    <input type="submit" value="Submit for Analysis" />
+</form>
+<div class="row">
+    <div class="col-md-4">
+        <h2>Sentiment Index</h2>
+        <p>
+        @ViewBag.SentimentIndex
+        </p>
+    </div>
+    <div class="col-md-4">
+        <h2>Key Phrases</h2>
+        <p>
+            <ul>
+                @{
+                    if (ViewBag.KeyPhrases != null) { 
+                        foreach (var p in ViewBag.KeyPhrases)
+                        {
+                            <li>@p</li>
+                        }
+                    }
+
+                }
+            </ul>
+
+        </p>
+    </div>
+</div>
